@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="currencycalc" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM"
+       phpdoc-package="currencycalc"
+       version="1.1">
+
+    <object class="CurrencyCalcItem" table="currencycalc_items" extends="xPDOSimpleObject">
+        <field key="source" dbtype="varchar" precision="50" phptype="string" null="false" default=""/>
+        <field key="from" dbtype="varchar" precision="10" phptype="string" null="false" default=""/>
+        <field key="to" dbtype="varchar" precision="10" phptype="string" null="false" default=""/>
+        <field key="rate" dbtype="decimal" precision="12,4" phptype="float" null="true" default="0"/>
+        <field key="updatedon" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="true"
+               default=""/>
+        <field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1"/>
+        <field key="rank" dbtype="int" precision="4" attributes="unsigned" phptype="integer" null="true"
+               default="0"/>
+        <field key="description" dbtype="text" phptype="text" null="true" default=""/>
+        <field key="properties" dbtype="text" phptype="json" null="true"/>
+
+        <index alias="from" name="from" primary="false" unique="false" type="BTREE">
+            <column key="from" length="" collation="A" null="false"/>
+        </index>
+        <index alias="to" name="to" primary="false" unique="false" type="BTREE">
+            <column key="to" length="" collation="A" null="false"/>
+        </index>
+        <index alias="active" name="active" primary="false" unique="false" type="BTREE">
+            <column key="active" length="" collation="A" null="false"/>
+        </index>
+    </object>
+
+</model>

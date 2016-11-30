@@ -1,0 +1,1 @@
+<div id="currencycalc-panel-home-div"></div>
