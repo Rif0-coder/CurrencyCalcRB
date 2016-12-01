@@ -67,8 +67,13 @@ foreach ($items as $item) {
     unset($item['description'], $item['updatedon'], $item['active'], $item['properties']);
     $js_data[$item['id']] = $item;
 }
+
+//
+$propkey = hash('sha1', serialize($sp));
+
+//
 $modx->regClientScript('<script>
-    var CurrencyCalc = new CurrencyCalc({
+    CurrencyCalc["' . $propkey . '"] = new CurrencyCalc({
         data: ' . ($modx->toJSON($js_data)) . ',
     });
 </script>', true);

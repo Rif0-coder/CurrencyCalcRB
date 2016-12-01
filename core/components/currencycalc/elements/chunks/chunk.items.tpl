@@ -38,6 +38,12 @@
         margin: 0 auto 10px;
     }
 
+    @media (max-width: 48em) {
+        .currencycalc__item {
+            width: 100%;
+        }
+    }
+
     .currencycalc__item-input {
         width: calc(100% - 70px);
         background: #fff;
