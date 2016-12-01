@@ -26,6 +26,7 @@ class CurrencyCalcSourceGetListProcessor extends modProcessor
         $sources = array(
             'YahooApis',
             'Cbr',
+            'NbKz',
         );
         foreach ($sources as $source) {
             $output[] = array(

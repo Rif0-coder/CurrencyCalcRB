@@ -66,6 +66,7 @@ $_lang['currencycalc_combo_list_empty'] = 'Выпадающий список п�
 // Названия источников
 $_lang['currencycalc_source_yahooapis'] = 'Yahoo Apis';
 $_lang['currencycalc_source_cbr'] = 'ЦентроБанк РФ';
+$_lang['currencycalc_source_nbkz'] = 'НацБанк Казахстана';
 $_lang['currencycalc_source_'] = '';
 
 // Другое

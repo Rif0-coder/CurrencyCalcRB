@@ -1,6 +1,6 @@
 <?php
 
-class ccSourceCbr extends ccSourceBase
+class ccSourceNbKz extends ccSourceBase
 {
     /**
      * @param CurrencyCalcItem $object
@@ -16,32 +16,32 @@ class ccSourceCbr extends ccSourceBase
         $toVal = 0;
 
         $xml = new DOMDocument();
-        if (@$xml->load('http://www.cbr.ru/scripts/XML_daily.asp?date_req=' . date('d/m/Y'))) {
+        if (@$xml->load('http://www.nationalbank.kz/rss/rates_all.xml')) {
             $xmlRoot = $xml->documentElement;
-            if ($valutes = $xmlRoot->getElementsByTagName('Valute')) {
+            if ($valutes = $xmlRoot->getElementsByTagName('item')) {
                 // Получаем значения курса
                 foreach ($valutes as $xmlValute) {
-                    $code = $xmlValute->getElementsByTagName('CharCode')->item(0)->nodeValue;
+                    $code = $xmlValute->getElementsByTagName('title')->item(0)->nodeValue;
                     $code = strtoupper($code);
 
-                    if (($from === 'RUB' && $code === $to) ||
-                        ($to === 'RUB' && $code === $from) ||
-                        ($from !== 'RUB' && $to !== 'RUB' && ($code === $from || $code === $to))
+                    if (($from === 'KZT' && $code === $to) ||
+                        ($to === 'KZT' && $code === $from) ||
+                        ($from !== 'KZT' && $to !== 'KZT' && ($code === $from || $code === $to))
                     ) {
-                        $nominal = $xmlValute->getElementsByTagName('Nominal')->item(0)->nodeValue;
+                        $nominal = $xmlValute->getElementsByTagName('quant')->item(0)->nodeValue;
                         $nominal = (float)str_replace(',', '.', $nominal);
-                        $value = $xmlValute->getElementsByTagName('Value')->item(0)->nodeValue;
+                        $value = $xmlValute->getElementsByTagName('description')->item(0)->nodeValue;
                         $value = (float)str_replace(',', '.', $value);
 
-                        if ($from === 'RUB' && $code === $to) {
+                        if ($from === 'KZT' && $code === $to) {
                             $fromVal = $nominal;
                             $toVal = $value;
                             break;
-                        } elseif ($to === 'RUB' && $code === $from) {
+                        } elseif ($to === 'KZT' && $code === $from) {
                             $fromVal = $value;
                             $toVal = $nominal;
                             break;
-                        } elseif ($from !== 'RUB' && $to !== 'RUB') {
+                        } elseif ($from !== 'KZT' && $to !== 'KZT') {
                             if ($code === $from) {
                                 $fromVal = $value / $nominal;
                             } elseif ($code === $to) {
