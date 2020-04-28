@@ -41,8 +41,6 @@ class CurrencyCalc
 
             'prepareResponse' => false,
             'jsonResponse' => false,
-
-            'paramRate' => 'LastTradePriceOnly',
         ), $config);
 
         $this->modx->addPackage('currencycalc', $this->config['modelPath']);

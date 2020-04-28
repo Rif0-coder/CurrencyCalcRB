@@ -16,6 +16,7 @@ class ccSourceYahooApis extends ccSourceBase
         $from = $object->get('from');
         $to = $object->get('to');
 
+        /** @var modRestCurlClient $curl */
         $curl = $this->modx->getService('rest.modRestCurlClient');
         $result = $this->modx->fromJSON($curl->request('https://query.yahooapis.com/v1/public/yql', '', 'GET', array(
             'q' => 'select * from yahoo.finance.quote where symbol in ("' . $from . $to . '=X")',

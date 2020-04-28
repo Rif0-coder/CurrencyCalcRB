@@ -7,7 +7,7 @@ $settings = array();
 $tmp = array(
     'frontend_js' => array(
         'xtype' => 'textfield',
-        'area' => 'seofilter_main',
+        'area' => 'currencycalc_main',
         'value' => '[[+jsUrl]]web/default.js',
     ),
 );
