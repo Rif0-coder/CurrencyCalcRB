@@ -1,10 +1,7 @@
 --------------------
 CurrencyCalc
 --------------------
-Author: John Doe <john@doe.com>
+Author: Pavel Gvozdb <pavelgvozdb@yandex.com>
 --------------------
 
-A basic Extra for MODx Revolution.
-
-Feel free to suggest ideas/improvements/bugs on GitHub:
-http://github.com/username/CurrencyCalc/issues
+Parser and exchange rate calculator for MODX Revolution.
