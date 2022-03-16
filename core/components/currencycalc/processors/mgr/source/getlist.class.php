@@ -10,8 +10,7 @@ class CurrencyCalcSourceGetListProcessor extends modProcessor
      */
     public function initialize()
     {
-        $this->cc = $this->modx->getService('currencycalc', 'CurrencyCalc', MODX_CORE_PATH .
-                                                                            'components/currencycalc/model/currencycalc/');
+        $this->cc = $this->modx->getService('currencycalc', 'CurrencyCalc', MODX_CORE_PATH . 'components/currencycalc/model/currencycalc/');
         $this->cc->initialize($this->modx->context->get('key'));
 
         return parent::initialize();
@@ -24,9 +23,10 @@ class CurrencyCalcSourceGetListProcessor extends modProcessor
     {
         $output = array();
         $sources = array(
-            'YahooApis',
+            // 'YahooApis',
             'Cbr',
             'NbKz',
+            'FreeCurrencyRatesApi',
         );
         foreach ($sources as $source) {
             $output[] = array(

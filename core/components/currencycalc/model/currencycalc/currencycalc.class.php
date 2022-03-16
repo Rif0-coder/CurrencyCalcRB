@@ -12,7 +12,7 @@ class CurrencyCalc
     public $initialized = array();
 
     /**
-     * @param modX  $modx
+     * @param modX $modx
      * @param array $config
      */
     function __construct(modX &$modx, array $config = array())
@@ -49,7 +49,7 @@ class CurrencyCalc
 
     /**
      * @param string $ctx
-     * @param array  $sp
+     * @param array $sp
      *
      * @return boolean
      */
@@ -120,7 +120,6 @@ class CurrencyCalc
     public function refreshRate(CurrencyCalcItem $object)
     {
         $output = false;
-
         if ($source = $object->get('source')) {
             $className = 'ccSource' . $source;
             $this->modx->loadClass('ccSourceBase', $this->config['sourcesPath'], true, true);

@@ -11,7 +11,7 @@ abstract class ccSourceBase
 
     /**
      * @param CurrencyCalc $cc
-     * @param array        $config
+     * @param array $config
      */
     function __construct(CurrencyCalc &$cc, array $config = array())
     {

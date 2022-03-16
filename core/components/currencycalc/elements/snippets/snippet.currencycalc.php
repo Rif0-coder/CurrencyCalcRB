@@ -2,7 +2,6 @@
 /** @var modX $modx */
 /** @var array $scriptProperties */
 /** @var CurrencyCalc $cc */
-
 $sp = &$scriptProperties;
 $cc = $modx->getService('currencycalc', 'CurrencyCalc', MODX_CORE_PATH . 'components/currencycalc/model/currencycalc/');
 if (!is_object($cc)) {
