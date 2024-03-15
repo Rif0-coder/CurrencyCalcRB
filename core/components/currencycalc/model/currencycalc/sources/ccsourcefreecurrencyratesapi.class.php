@@ -12,8 +12,8 @@ class ccSourceFreeCurrencyRatesApi extends ccSourceBase
         $is_updated = false;
         $from = $object->get('from');
         $to = $object->get('to');
-
-        $content = file_get_contents('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/' . strtolower($from) . '.json');
+       // new json file connection
+       $content = file_get_contents('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/' . strtolower($from) . '.json');
         if (!empty($content)) {
             $data = $this->modx->fromJSON($content);
             $rate = @$data[strtolower($from)][strtolower($to)];
